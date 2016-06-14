@@ -1,0 +1,2 @@
+#Downloading all files with a FIT ending from some url
+wget -r -l1 --no-parent -A.FIT http://www.directory.com/astrodata/

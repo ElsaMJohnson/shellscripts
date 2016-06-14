@@ -1,0 +1,24 @@
+# Grep for a key word in a file and list line number and put into temp 
+
+grep -e "keyword1" -e "keyword2" -e "keyword3" -n file > temp
+
+# select the first column with delimiter : and store in temp
+cut -f 1 -d ":"  filename > temp
+
+# cut columns 12-20 of file and look for certain entries in those columns from 
+# a file containing keywords, send output to temp
+cat filename | cut -c 12-20 | grep -f "fileofkeywords" > temp
+#
+#Print a range of lines in a file:
+sed -n 'beginline,endlinep' file
+ex. sed -n '10,450p' filename
+ 
+#Get rid of blanks
+grep '[^[:blank:]]' < filein > fileout 
+
+#Print out first and last 10 lines of a text file:
+(head -10 && tail -10) <filein
+
+#create a file to execute a mass renaming of files from *FIT to *fits
+for filename in M101*; do echo mv \"$filename\" \"${filename//M101/m101}\"; done > rename.txt
+
