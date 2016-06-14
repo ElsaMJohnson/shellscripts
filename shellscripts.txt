@@ -19,6 +19,7 @@ grep '[^[:blank:]]' < filein > fileout
 #Print out first and last 10 lines of a text file:
 (head -10 && tail -10) <filein
 
-#create a file to execute a mass renaming of files from *FIT to *fits
-for filename in M101*; do echo mv \"$filename\" \"${filename//M101/m101}\"; done > rename.txt
+#create a file to execute a mass renaming of files from *FIT to *fits. All
+#files in this case begin with prefix of M101
+for filename in M101*; do echo mv \"$filename\" \"${filename//FIT/fits}\"; done > rename.txt
 
